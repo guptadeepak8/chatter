@@ -90,6 +90,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mobile{
+    height: 90vh;
+  }
 
   .home-container{
     border: 1px solid white;
@@ -241,7 +244,7 @@
 
                 .message{
                     display: flex;
-                    gap: 20px;
+                    gap: 10px;
                     margin-bottom: 20px;
 
                     .messageinfo{
