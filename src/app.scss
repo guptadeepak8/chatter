@@ -3,6 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.loading{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    background-color:aqua ;
+    height: 100vh;
+}
 /* registration & login css */
 .form-control{
     background-color: aqua;
@@ -71,19 +80,206 @@
   align-items: center;
 
   .home-container{
-    border: 4px solid white;
-    border-radius: 10px;
-    width: 65%;
-    height: 80%;
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
     display: flex;
     overflow: hidden;
 
     .sidebar{
         flex: 1;
-        background-color: antiquewhite;
+        background-color: #7b96ec;
+
+        .navbar{
+            background-color: brown;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            padding: 10px;
+            color: rgb(222, 231, 191);
+
+           .logo{
+            font-weight: bold;
+            font-size: 1.5rem;
+           }
+           .user{
+             display: flex;
+             align-items: center;
+             gap:10px;
+            
+             img{
+                background-color: #5d5b8d;
+                width: 44px;
+                height: 44px;
+                object-fit: cover;
+                border-radius: 25px;
+             }
+
+             button{
+                background-color: #5d5b8d;
+                font-size: 20px;
+                border: none;
+                padding: 2px;
+                border-radius: 5px;
+                cursor: pointer;
+             }
+           }
+        }
+        .search{
+            border-bottom: 2px solid gray;
+
+            .searchform{
+
+                input{
+                    background-color: aquamarine;
+                    border: none;
+                    outline: none;
+                    height: 50px;
+                    width: 100%;
+                    font-size: 1.5rem;
+                    padding: 10px;
+                     
+                }
+            }
+        }
+        .userinfo{
+
+            display: flex;
+            align-items: center;
+            padding:10px ;
+            gap: 10px;
+            
+            &:hover{
+                background-color: #5d5b8d;
+                cursor: pointer;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .userchat{
+                span{
+                    font-size: 18px;
+                    font-weight: 500;
+                    }  
+                p{
+                    color: lightgray;
+                    font-size: 14px;
+                }              
+
+            }
+        }
     }
     .chat{
         flex: 2;
+
+        .chatinfo{
+            border-left: 1px solid white;
+            padding: 10px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: brown;
+            
+            }
+            .chaticon{
+                display: flex;
+                gap: 10px;
+
+                img{
+                    width: 34px;
+                    height: 34px;
+                    border-radius: 30px; 
+                }
+            }
+            .messages{
+                background-color: lightcoral;
+                padding: 10px;
+                height: calc(100% - 122px);
+                overflow: scroll;
+
+                .message{
+                    display: flex;
+                    gap: 20px;
+                    margin-bottom: 20px;
+
+                    .messageinfo{
+                        display: flex;
+                        flex-direction: column;
+                        color: grey;
+                        font-weight: 300;
+                        img{
+                            width: 40px;
+                            height: 40px;
+                            border-radius:50%;
+                            object-fit: cover;
+                        }
+                    }
+                    .messagecontent{
+                        max-width: 70%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                       
+
+                        p{
+                            background-color: white;
+                            padding: 10px;
+                            border-radius: 0px 10px 10px 10px ;
+                        }
+                        img{
+                            width: 50%;
+                        }
+                    }
+                    &.owner{
+                        flex-direction: row-reverse;
+
+                        .messagecontent{
+                            align-items: flex-end;
+                            p{
+                                background-color: #7b96ec;
+                                color: white;
+                                border-radius: 10px 0px 10px 10px ;
+                                max-width: max-content;
+                            }
+                        }
+                    }
+                }
+           }
+            .Input{
+                background-color: green;
+                height: 50px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+
+                input{
+                    height: 40px;
+                    width: calc(100% - 110px);
+                    border-radius: 20px;
+                    border: none;
+                    background-color: yellowgreen;
+                    outline: none;
+                    color: whitesmoke;
+                    font-size: 18px;
+                    padding: 5px;
+                }
+                .inputinfo{
+                    display: flex;
+                    gap: 10px;
+
+                    button{
+                        padding: 10px 15px;
+                        color: white;
+                        background-color: aqua;
+                    }
+                }
+            }
     }
  }
 }
