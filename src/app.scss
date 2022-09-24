@@ -1,3 +1,15 @@
+@mixin mobile{
+    @media screen and (max-width:480px) {
+        @content
+    }
+}
+
+@mixin computer{
+    @media screen and (max-width:1200px) {
+        @content
+    }
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -102,6 +114,9 @@
            .logo{
             font-weight: bold;
             font-size: 1.5rem;
+            @include mobile{
+                display: none;
+            }
            }
            .user{
              display: flex;
@@ -161,7 +176,9 @@
             }
             .userchat{
                 span{
-                    font-size: 18px;
+                    font-size: 18
+                    
+                    px;
                     font-weight: 500;
                     }  
                 p{
