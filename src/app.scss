@@ -99,8 +99,12 @@
     overflow: hidden;
 
     .sidebar{
-        flex: 1;
+        width: 25%;
         background-color: #7b96ec;
+        position: relative;
+        @include mobile{
+            
+        }
 
         .navbar{
             background-color: brown;
@@ -122,6 +126,10 @@
              display: flex;
              align-items: center;
              gap:10px;
+             @include mobile{
+                flex-direction: column;
+                gap: 5px;
+             }
             
              img{
                 background-color: #5d5b8d;
@@ -138,6 +146,12 @@
                 padding: 2px;
                 border-radius: 5px;
                 cursor: pointer;
+                @include mobile{
+                    position: absolute;
+                    bottom: 10px;
+                    font-size: 15px;
+                    margin-left:20px ;
+                }
              }
            }
         }
@@ -164,6 +178,9 @@
             align-items: center;
             padding:10px ;
             gap: 10px;
+            @include mobile {
+                flex-direction: column;
+            }
             
             &:hover{
                 background-color: #5d5b8d;
@@ -184,7 +201,11 @@
                 p{
                     color: lightgray;
                     font-size: 14px;
-                }              
+                    @include mobile{
+                        display: none;
+                    }
+                }   
+                           
 
             }
         }
