@@ -64,15 +64,17 @@ const Input = () => {
   }
   return (
     <div className="Input"> 
-        <input type="text" placeholder='Type Something...' onChange={(e)=>setText(e.target.value)} value={text}/>
+        <input type="text" placeholder='Type here..' onChange={(e)=>setText(e.target.value)} value={text}/>
         <div className="inputinfo">
-          <label htmlFor="file">Image</label>
-        <input type="file" id='file' style={{display:'none'}} placeholder='Type Something...' onChange={(e)=>setImg(e.target.files[0])}/>
-          
+           {/* ? */}
           <button onClick={handleSend}>SEND</button>
         </div>
     </div>
   )
 }
+// for image uploading if want put on mark ?
+  //  <label htmlFor="file">Image</label>
+  //       <input type="file" id='file' style={{display:'none'}} onChange={(e)=>setImg(e.target.files[0])}/>
+           
 
 export default Input

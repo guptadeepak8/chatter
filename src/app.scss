@@ -21,12 +21,11 @@
     display: flex;
     justify-content: center;
     font-size: 60px;
-    background-color:aqua ;
     height: 100vh;
 }
 /* registration & login css */
 .form-control{
-    background-color: aqua;
+    background-color: #3a3b3c;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -57,13 +56,13 @@
                 border: none;
                 border-bottom: 2px solid #5d5b8d;
                 width: 250px;
+                outline: none;
 
                 ::placeholder{
                     color: rgb(175,175,175);
                 }
-                [type=file]{
-                    display: none;
-                }
+               
+               
             }
             
             button{
@@ -85,38 +84,44 @@
 }
 
 .home{
-  background-color: #a7bcff;
+
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   @include mobile{
-    height: 90vh;
+    height: 95vh;
   }
 
   .home-container{
-    border: 1px solid white;
     width: 100%;
     height: 100%;
     display: flex;
     overflow: hidden;
 
     .sidebar{
-        width: 25%;
-        background-color: #7b96ec;
+        width: 30%;
+        background-color:#3a3b3c;
+        color: aliceblue;
         position: relative;
-        @include mobile{
-            
-        }
+      @include mobile{
+        width: 25%;    
+    }
 
         .navbar{
-            background-color: brown;
+            background-color: #3a3b3c;
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 70px;
             padding: 10px;
-            color: rgb(222, 231, 191);
+            color: rgb(191, 231, 210);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            @include mobile{
+                justify-content: center;
+                padding-top: 15px;
+            }
 
            .logo{
             font-weight: bold;
@@ -131,7 +136,7 @@
              gap:10px;
              @include mobile{
                 flex-direction: column;
-                gap: 5px;
+                gap: 3px;
              }
             
              img{
@@ -143,33 +148,35 @@
              }
 
              button{
-                background-color: #5d5b8d;
+                background-color: #181818;
                 font-size: 20px;
                 border: none;
-                padding: 2px;
+                padding: 10px;
                 border-radius: 5px;
+                color: white;
                 cursor: pointer;
                 @include mobile{
                     position: absolute;
                     bottom: 10px;
                     font-size: 15px;
-                    margin-left:20px ;
+                    margin-left:5% ;
                 }
              }
            }
         }
         .search{
-            border-bottom: 2px solid gray;
+            border-bottom: 1px solid gray;
 
             .searchform{
 
                 input{
-                    background-color: aquamarine;
+                    
+                    background-color: #929292;
                     border: none;
                     outline: none;
                     height: 50px;
                     width: 100%;
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     padding: 10px;
                      
                 }
@@ -181,8 +188,11 @@
             align-items: center;
             padding:10px ;
             gap: 10px;
+             
             @include mobile {
                 flex-direction: column;
+                gap: 5px;
+                overflow-y: scroll;
             }
             
             &:hover{
@@ -196,9 +206,7 @@
             }
             .userchat{
                 span{
-                    font-size: 18
-                    
-                    px;
+                    font-size: 18px;
                     font-weight: 500;
                     }  
                 p{
@@ -217,13 +225,15 @@
         flex: 2;
 
         .chatinfo{
-            border-left: 1px solid white;
             padding: 10px;
             height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: brown;
+            background-color: #929292;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 300px;
             
             }
             .chaticon{
@@ -237,7 +247,7 @@
                 }
             }
             .messages{
-                background-color: lightcoral;
+                background-color: #181818;
                 padding: 10px;
                 height: calc(100% - 122px);
                 overflow: scroll;
@@ -291,7 +301,7 @@
                 }
            }
             .Input{
-                background-color: green;
+                background-color: #929292;
                 height: 50px;
                 padding: 10px;
                 display: flex;
@@ -301,12 +311,12 @@
 
                 input{
                     height: 40px;
-                    width: calc(100% - 110px);
+                    width:75%;
                     border-radius: 20px;
                     border: none;
-                    background-color: yellowgreen;
+                    background-color:#f9f9f9;
                     outline: none;
-                    color: whitesmoke;
+                    color: black;
                     font-size: 18px;
                     padding: 5px;
                 }
@@ -317,7 +327,13 @@
                     button{
                         padding: 10px 15px;
                         color: white;
-                        background-color: aqua;
+                        background-color: #181818;
+                        outline: none;
+                        border: none;
+                        @include mobile{
+                            padding: 8px 10px;
+                            border-radius: 15px;
+                        }
                     }
                 }
             }
