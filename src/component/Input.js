@@ -1,4 +1,5 @@
 import EmojiPicker from 'emoji-picker-react';
+import { Theme } from 'emoji-picker-react';
 import { arrayUnion, doc, serverTimestamp, Timestamp, updateDoc } from 'firebase/firestore';
 import React,{useContext,useState} from 'react'
 import { AuthContext } from '../context/AuthContext'
@@ -10,11 +11,21 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 const Input = () => {
   const [text,setText]=useState('');
   const [img,setImg]=useState(null);
-
+  const [emoji,setEmoji]=useState(false)
 
   const {currentUser}=useContext(AuthContext)
   const { data}=useContext(ChatContext)
 
+  const handleEmoji=()=>{
+    setEmoji(!emoji) 
+  
+  }
+
+  const handleSelectEmoji=(event,emoji)=>{
+    let message=text
+    message+=emoji.emoji
+    setText(message)
+  }
   const handleSend=async()=>{
      if(img){
       const storageRef = ref(storage, uuid());
@@ -67,11 +78,17 @@ const Input = () => {
     <div className="Input"> 
         <input type="text" placeholder='Type here..' onChange={(e)=>setText(e.target.value)} value={text}/>
         <div className="inputinfo">
-          <button onClick={handleSend}>SEND</button>
+          <div className="button-container">
+            <div className="emoji">
+          <button className='btn' onClick={handleEmoji}>emoji</button>
+          {emoji && <EmojiPicker  onEmojiClick={handleSelectEmoji}/>}
+          </div>
+          </div>
+          <button className='btn' onClick={handleSend}>SEND</button>
 
     
           
-           {/* ? this is emjoi  */}
+           {/* ?  */}
         </div>
     </div>
   )
