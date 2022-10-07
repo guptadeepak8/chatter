@@ -69,9 +69,9 @@ const Input = () => {
         <div className="inputinfo">
           <button onClick={handleSend}>SEND</button>
 
-
+    
           
-           {/* ? */}
+           {/* ? this is emjoi  */}
         </div>
     </div>
   )
