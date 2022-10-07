@@ -68,6 +68,9 @@ const Input = () => {
         <input type="text" placeholder='Type here..' onChange={(e)=>setText(e.target.value)} value={text}/>
         <div className="inputinfo">
           <button onClick={handleSend}>SEND</button>
+
+
+          
            {/* ? */}
         </div>
     </div>
