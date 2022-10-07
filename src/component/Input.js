@@ -1,3 +1,4 @@
+import EmojiPicker from 'emoji-picker-react';
 import { arrayUnion, doc, serverTimestamp, Timestamp, updateDoc } from 'firebase/firestore';
 import React,{useContext,useState} from 'react'
 import { AuthContext } from '../context/AuthContext'
@@ -66,8 +67,8 @@ const Input = () => {
     <div className="Input"> 
         <input type="text" placeholder='Type here..' onChange={(e)=>setText(e.target.value)} value={text}/>
         <div className="inputinfo">
-           {/* ? */}
           <button onClick={handleSend}>SEND</button>
+           {/* ? */}
         </div>
     </div>
   )
