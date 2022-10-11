@@ -17,8 +17,9 @@ export default function Register() {
     const password=e.target[2].value
     let file=e.target[3].files[0]
  
+    // email-already-in-use
 try {
-  const res=await createUserWithEmailAndPassword(auth, email, password)
+  const res =await createUserWithEmailAndPassword(auth, email, password)
   const storageRef = ref(storage, displayName);
   const uploadTask = uploadBytesResumable(storageRef, file);
   
@@ -45,6 +46,7 @@ try {
     }
   );  
 } catch (error) {
+  console.log(error)
   setError(true)
 }
 
@@ -57,7 +59,7 @@ try {
           <div className="form-wrapper">
             <span className='title'>REGISTER</span>
             <form onSubmit={handleSubmit}>
-               <input type="text" placeholder='NAME' />
+               <input type="text" placeholder='USERNAME' />
                <input type="email" placeholder='EMAIL' />
                <input type="password" placeholder='PASSWORD'/>
                <input style={{display:'none'}} type="file" id='upload'/>

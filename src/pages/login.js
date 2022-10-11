@@ -6,22 +6,49 @@ import Loading from '../component/loading';
 
 export default function Login() {
   const [loading,setLoading]=useState(false)
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
   const [error,setError]=useState(false)
+  const [erroremail,setErrorEmail]=useState(false)
+  const [errorpass,setErrorPass]=useState(false)
   const navigate=useNavigate()
 
+
+
+  const clearError=()=>{
+    setErrorEmail(false)
+    setErrorPass(false)
+  }
+
+  const clearInfo=()=>{
+    setEmail('')
+    setPassword('')
+  }
+  
   const handleSubmit=async(e)=>{
     e.preventDefault()
-   
-    const email=e.target[0].value
-    const password=e.target[1].value
-    setLoading(true)
-    
+
   try {
+    clearError();
     await signInWithEmailAndPassword(auth, email, password)
-   setLoading(false)
-    navigate('/')
+    setInterval(()=>setLoading(true),5000)
+      navigate('/')
+      setLoading(false)
+   
   } catch (error) {
-    setError(true)
+    switch(error.code){
+      case 'auth/user-not-found':
+         setErrorEmail(true)
+         clearInfo();
+      break;
+      
+      case 'auth/wrong-password':
+          setErrorPass(true)
+          clearInfo();
+       break;
+       
+    }
+    console.log(error)
   }
 }
 if(loading){
@@ -37,10 +64,12 @@ if(loading){
           <div className="form-wrapper">
             <span className='title'>LOGIN</span>
             <form className='form' onSubmit={handleSubmit}>
-               <input type="email" placeholder='EMAIL' />
-               <input type="password" placeholder='PASSWORD'/>
+               <input type="email" placeholder='EMAIL' value={email} onChange={e=>setEmail(e.target.value)}/>
+               <input type="password" placeholder='PASSWORD' value={password} onChange={e=>setPassword(e.target.value)}/>
+               {erroremail && <span>User not found</span>}
+               {errorpass && <span>Password Incorrect</span>}
                <button >Sign In</button>
-               {error && <span>Something Went wrong</span>}
+              
             </form>
             <p>You don't have account?<Link to="/register">Register</Link></p>
           </div>
