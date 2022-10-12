@@ -31,7 +31,7 @@ const Input = () => {
     e.code === "Enter" && handleSend();
   }
   const handleEmojiKey=(e)=>{
-    e.code === "e" && handleEmoji();
+    e.code === "e" && handleSelectEmoji();
   }
 
   const handleSelectEmoji = (Emoji, event) => {
@@ -101,11 +101,10 @@ const Input = () => {
       <div className="inputinfo">
         <div className="button-container">
           <div className="emoji">
-            <button className="btn yellow" onClick={handleEmoji}>
+            <span className="btn yellow" onClick={handleEmoji} onKeyDown={handleEmojiKey}>
               EMOJI
-            </button>
-            {emoji && <EmojiPicker
- width={930} height={280}  onEmojiClick={handleSelectEmoji} />}
+            </span>
+            {emoji && <EmojiPicker width={930} height={280}  onEmojiClick={handleSelectEmoji} />}
           </div>
         </div>
         <label htmlFor="file" className='btn blue'>IMAGE</label>

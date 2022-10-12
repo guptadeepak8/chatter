@@ -8,7 +8,6 @@ export default function Login() {
   const [loading,setLoading]=useState(false)
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
-  const [error,setError]=useState(false)
   const [erroremail,setErrorEmail]=useState(false)
   const [errorpass,setErrorPass]=useState(false)
   const navigate=useNavigate()
@@ -46,7 +45,7 @@ export default function Login() {
           setErrorPass(true)
           clearInfo();
        break;
-       
+       default:
     }
     console.log(error)
   }
