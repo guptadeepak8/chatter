@@ -31,7 +31,7 @@ const Input = () => {
     e.code === "Enter" && handleSend();
   }
   const handleEmojiKey=(e)=>{
-    e.code === "e" && handleSelectEmoji();
+    e.code === "e" && handleEmoji();
   }
 
   const handleSelectEmoji = (Emoji, event) => {
