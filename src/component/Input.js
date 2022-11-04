@@ -42,7 +42,6 @@ const Input = () => {
   
   const handleSend = async () => {
     setText("");
-    setImg(null);
     setEmoji(false)
     if (img) {
       const storageRef = ref(storage, uuid());
