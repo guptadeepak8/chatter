@@ -4,24 +4,13 @@ import { auth } from '../firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Loading from '../component/loading';
 
-
-//form value and connect with useState
 export default function Login() {
   const [loading,setLoading]=useState(false)
-<<<<<<< HEAD
-  const [error,setError]=useState(false)
-  const [errors,setErrors]=useState('')
-=======
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [erroremail,setErrorEmail]=useState(false)
   const [errorpass,setErrorPass]=useState(false)
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
   const navigate=useNavigate()
-  const [data,setData]=useState({
-    email:'',
-    password:''
-  })
 
 
 
@@ -39,16 +28,6 @@ export default function Login() {
     e.preventDefault()
 
   try {
-<<<<<<< HEAD
-   await signInWithEmailAndPassword(auth, email, password)
-      navigate('/')
-  } catch (error) {
-    setError(true);
-    setErrors (getErrorMessage(error.code));
-  }
-  finally{
-    setLoading(false)
-=======
     clearError();
     await signInWithEmailAndPassword(auth, email, password)
     setInterval(()=>setLoading(true),5000)
@@ -69,22 +48,8 @@ export default function Login() {
        default:
     }
     console.log(error)
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
   }
 }
-
-const getErrorMessage = (errorCode) => {
-  switch (errorCode) {
-    case 'auth/wrong-password':
-      return 'Invalid password';
-    case 'auth/user-not-found':
-      return 'User not found';
-    // Add more error code mappings as needed
-    default:
-      return 'Something went wrong';
-  }
-};
-
 if(loading){
   return(
     <main>
@@ -103,11 +68,7 @@ if(loading){
                {erroremail && <span>User not found</span>}
                {errorpass && <span>Password Incorrect</span>}
                <button >Sign In</button>
-<<<<<<< HEAD
-               {error && <span>{errors}</span>}
-=======
               
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
             </form>
             <p>You don't have account?<Link to="/register">Register</Link></p>
           </div>

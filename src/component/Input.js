@@ -16,18 +16,12 @@ import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Input = () => {
-<<<<<<< HEAD
-  const [text,setText]=useState('');
-  const [img,setImg]=useState(null);
-  const [error,setError]=useState(false)
-=======
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
   const [emoji, setEmoji] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
 
   const handleEmoji = () => {
     setEmoji(!emoji);
@@ -40,12 +34,6 @@ const Input = () => {
     e.code === "e" && handleEmoji();
   }
 
-<<<<<<< HEAD
-  const handleSend=async()=>{
-    //for image
-    setText('')
-     if(img){
-=======
   const handleSelectEmoji = (Emoji, event) => {
     let message = text;
     message += Emoji.emoji;
@@ -56,18 +44,12 @@ const Input = () => {
     setText("");
     setEmoji(false)
     if (img) {
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
       const storageRef = ref(storage, uuid());
       const uploadTask = uploadBytesResumable(storageRef, img);
       uploadTask.on(
         (error) => {
-<<<<<<< HEAD
-         setError(true)
-        }, 
-=======
             //setError(true)
         },
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateDoc(doc(db, "chats", data.chatId), {
@@ -102,18 +84,10 @@ const Input = () => {
       [data.chatId + ".lastMessage"]: {
         text,
       },
-<<<<<<< HEAD
-      [data.chatId+'.date']:serverTimestamp()
-     })
-   
-     setImg(null)
-  }
-=======
       [data.chatId + ".date"]: serverTimestamp(),
     });
     
   };
->>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
   return (
     <div className="Input">
       <input
