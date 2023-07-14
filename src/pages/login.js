@@ -8,22 +8,38 @@ import Loading from '../component/loading';
 //form value and connect with useState
 export default function Login() {
   const [loading,setLoading]=useState(false)
+<<<<<<< HEAD
   const [error,setError]=useState(false)
   const [errors,setErrors]=useState('')
+=======
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const [erroremail,setErrorEmail]=useState(false)
+  const [errorpass,setErrorPass]=useState(false)
+>>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
   const navigate=useNavigate()
   const [data,setData]=useState({
     email:'',
     password:''
   })
 
+
+
+  const clearError=()=>{
+    setErrorEmail(false)
+    setErrorPass(false)
+  }
+
+  const clearInfo=()=>{
+    setEmail('')
+    setPassword('')
+  }
+  
   const handleSubmit=async(e)=>{
     e.preventDefault()
-   
-    const email=e.target[0].value
-    const password=e.target[1].value
-    setLoading(true)
-    
+
   try {
+<<<<<<< HEAD
    await signInWithEmailAndPassword(auth, email, password)
       navigate('/')
   } catch (error) {
@@ -32,6 +48,28 @@ export default function Login() {
   }
   finally{
     setLoading(false)
+=======
+    clearError();
+    await signInWithEmailAndPassword(auth, email, password)
+    setInterval(()=>setLoading(true),5000)
+      navigate('/')
+      setLoading(false)
+   
+  } catch (error) {
+    switch(error.code){
+      case 'auth/user-not-found':
+         setErrorEmail(true)
+         clearInfo();
+      break;
+      
+      case 'auth/wrong-password':
+          setErrorPass(true)
+          clearInfo();
+       break;
+       default:
+    }
+    console.log(error)
+>>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
   }
 }
 
@@ -60,10 +98,16 @@ if(loading){
           <div className="form-wrapper">
             <span className='title'>LOGIN</span>
             <form className='form' onSubmit={handleSubmit}>
-               <input type="email" placeholder='EMAIL' />
-               <input type="password" placeholder='PASSWORD'/>
+               <input type="email" placeholder='EMAIL' value={email} onChange={e=>setEmail(e.target.value)}/>
+               <input type="password" placeholder='PASSWORD' value={password} onChange={e=>setPassword(e.target.value)}/>
+               {erroremail && <span>User not found</span>}
+               {errorpass && <span>Password Incorrect</span>}
                <button >Sign In</button>
+<<<<<<< HEAD
                {error && <span>{errors}</span>}
+=======
+              
+>>>>>>> 9078cd4df3728d22a42f5e4a72ec28ca5632f818
             </form>
             <p>You don't have account?<Link to="/register">Register</Link></p>
           </div>
