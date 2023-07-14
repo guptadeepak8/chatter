@@ -9,18 +9,20 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 const Input = () => {
   const [text,setText]=useState('');
   const [img,setImg]=useState(null);
-
+  const [error,setError]=useState(false)
 
   const {currentUser}=useContext(AuthContext)
   const { data}=useContext(ChatContext)
 
   const handleSend=async()=>{
+    //for image
+    setText('')
      if(img){
       const storageRef = ref(storage, uuid());
       const uploadTask = uploadBytesResumable(storageRef, img);
       uploadTask.on(
         (error) => {
-        //  setError(true)
+         setError(true)
         }, 
         () => {
        
@@ -59,7 +61,7 @@ const Input = () => {
       },
       [data.chatId+'.date']:serverTimestamp()
      })
-     setText('')
+   
      setImg(null)
   }
   return (

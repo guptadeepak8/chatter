@@ -1,17 +1,16 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAa2y4mByTkuB9I2BolwyTZyn_99caFIaI",
-  authDomain: "chatter-9ddb9.firebaseapp.com",
-
-  projectId: "chatter-9ddb9",
-  storageBucket: "chatter-9ddb9.appspot.com",
-  messagingSenderId: "1029606247132",
-  appId: "1:1029606247132:web:13f34b44dd6969fbc78219"
+  apiKey: "AIzaSyBLQ2PA_hlvZou-WIGuMlKyGZfKgKTJLJE",
+  authDomain: "chatter-fafde.firebaseapp.com",
+  projectId: "chatter-fafde",
+  storageBucket: "chatter-fafde.appspot.com",
+  messagingSenderId: "472977335151",
+  appId: "1:472977335151:web:7220f22c7fc27efe563e9a"
 };
 
 // Initialize Firebase

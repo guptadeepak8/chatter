@@ -23,7 +23,6 @@ const Search = () => {
         setUser(doc.data());
     });
     } catch (error) {
-
       setError(true)
     }
    
@@ -57,7 +56,10 @@ const Search = () => {
         },
         [combinedId+'.date']:serverTimestamp()
       })
-
+      
+      }
+      else{
+        throw new Error
       }
     } catch (error) {
       setError(true)
